@@ -70,7 +70,7 @@ BBB-45,2h30m,2026-09-26,
 uv run cargar-horas --archivo cargas.csv --dry-run
 uv run cargar-horas --archivo cargas.csv
 ```
-El primer comando muestra lo que va a hacer, sin cargar nada. El segundo carga.
+El primero, con `--dry-run`, es una prueba: no carga nada, solo muestra lo que haría. El segundo, sin `--dry-run`, carga.
 
 ---
 
@@ -91,7 +91,7 @@ uv run crear-tareas --template
 
 Dejar TICKET vacío. Guardar y **cerrar** el Excel.
 
-**Paso 3.** Revisar sin crear nada:
+**Paso 3.** Probar con `--dry-run` (no crea ni carga nada, solo muestra lo que haría):
 
 ```powershell
 uv run crear-tareas tareas.xlsx --dry-run
@@ -150,7 +150,9 @@ Guardar y **cerrar** el Excel antes del paso 2: si está abierto, el script no p
 uv run crear-tareas tareas_2026-10-02.xlsx --dry-run
 ```
 
-Muestra qué va a hacer con cada fila, sin tocar Jira. Si una fila tiene un error (falta el título, la fecha es futura, el proyecto no existe), lo muestra acá.
+Prueba sin efecto: **no crea tickets ni carga horas**. Solo consulta Jira para validar cada fila y muestra qué haría. Si una fila tiene un error (falta el título, la fecha es futura, el proyecto no existe), lo muestra acá.
+
+Si está todo bien, correr el mismo comando **sin** `--dry-run`, que es el que crea y carga:
 
 ```powershell
 uv run crear-tareas tareas_2026-10-02.xlsx
