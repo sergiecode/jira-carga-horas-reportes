@@ -1,0 +1,7 @@
+.env
+.venv/
+*.xlsx
+__pycache__/
+*.pyc
+.pytest_cache/
+.claude/settings.local.json
